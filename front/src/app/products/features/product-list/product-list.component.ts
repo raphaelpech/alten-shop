@@ -7,6 +7,8 @@ import { CardModule } from "primeng/card";
 import { DataViewModule } from 'primeng/dataview';
 import { DialogModule } from 'primeng/dialog';
 import { DecimalPipe } from "@angular/common";
+import { CartService } from "app/products/data-access/cart.service";
+import { ShoppingCartComponent } from "../shopping-cart/shopping-cart.component";
 
 const emptyProduct: Product = {
   id: 0,
@@ -34,6 +36,7 @@ const emptyProduct: Product = {
 })
 export class ProductListComponent implements OnInit {
   private readonly productsService = inject(ProductsService);
+  private readonly cartService = inject(CartService);
 
   public readonly products = this.productsService.products;
 
@@ -49,6 +52,14 @@ export class ProductListComponent implements OnInit {
     this.isCreation = true;
     this.isDialogVisible = true;
     this.editedProduct.set(emptyProduct);
+  }
+
+  onAddToCart(product: Product) {
+    if(product.inventoryStatus === 'OUTOFSTOCK') {
+      alert("Désolé, ce produit n'est plus en stock et ne peut pas être ajouté au panier. Réessayez plus tard.");
+    } else {
+      this.cartService.addProductToCart({ ...product, quantity: 1 });
+    }
   }
 
   public onUpdate(product: Product) {

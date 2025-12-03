@@ -1,0 +1,33 @@
+<form #contactForm="ngForm" (ngSubmit)="onSend(contactForm)">
+    <div class="form-field">
+      <label for="email">Votre e-mail</label>
+      <input pInputText
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="editedMessage.email"
+        required>
+      <div *ngIf="contactForm.controls.email && contactForm.controls.email.invalid && (contactForm.controls.email.dirty || contactForm.controls.email.touched)">
+        <div class="form-error" *ngIf="contactForm.controls.email.errors?.required">Veuillez entrer une adresse e-mail</div>
+        <div class="form-error" *ngIf="contactForm.controls.email.errors?.email">Veuillez entrer une adresse e-mail valide.</div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="message">Votre message</label>
+      <textarea pInputTextarea
+        type="text"
+        id="message"
+        name="message"
+        [(ngModel)]="editedMessage.message"
+        maxlength="300"
+        required></textarea>
+      <div *ngIf="contactForm.controls.message && contactForm.controls.message.invalid && (contactForm.controls.message.dirty || contactForm.controls.message.touched)">
+        <div class="form-error" *ngIf="contactForm.controls.message.errors?.required">Un message est requis.</div>
+        <div class="form-error" *ngIf="contactForm.controls.message.errors?.maxlength">Le message ne peut pas dépasser 300 caractères.</div>
+      </div>
+    </div>
+    <div class="flex justify-content-between">
+      <p-button class="send-button" type="submit" [disabled]="!contactForm.valid" label="Envoyer" severity="info"/>
+    </div>
+    <div [hidden]="!success">Demande de contact envoyée avec succès. Nous y répondrons sous peu.</div>
+</form>

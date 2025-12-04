@@ -6,13 +6,17 @@ const port = 3000;
 const mongoDB = "mongodb://localhost:27017/altenshop";
 mongoose.set("strictQuery", false);
 
-// Import des routes Products
+// Import des routes 
 const productRouter = require('./routes/product.routes');
+const authRouter = require('./routes/auth.routes');
+const userRouter = require('./routes/user.routes');
 
 app.use(express.json());
 
-// Mise en place des routes Products
+// Définition des routes
+app.use('/', authRouter);
 app.use('/api/products', productRouter);
+app.use('/api/user', userRouter);
 
 mongoose
   .connect(mongoDB)

@@ -1,0 +1,609 @@
+type: collection.insomnia.rest/5.0
+name: Alten Shop Test Collection
+meta:
+  id: wrk_97dae323fca34ea887e0de4e197d3d0e
+  created: 1764866432587
+  modified: 1764866454668
+collection:
+  - name: Products
+    meta:
+      id: fld_81064fd079f04345b0f1a79534a68d7a
+      created: 1764867632665
+      modified: 1764867632665
+      sortKey: -1764867632665
+    children:
+      - url: http://localhost:3000/api/products
+        name: Récupérer tous les produits (user, success)
+        meta:
+          id: req_ee860397e0ae49cb9cbb5c41dc6333a9
+          created: 1764866432635
+          modified: 1764873022448
+          isPrivate: false
+          sortKey: -1764867639123
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMjk4NTk2NjRhNGU0YzAzMzk1MCIsImlhdCI6MTc2NDg3Mjg1NiwiZXhwIjoxNzcyNjQ4ODU2fQ.pBEg_bPl7NJG_485J9coJ-PKSplWIkBcMpGyHX6BDqo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products
+        name: Créer un produit (admin, success)
+        meta:
+          id: req_1c192b2a74114f24be67e1bfa2ce78f1
+          created: 1764866473970
+          modified: 1764873045750
+          isPrivate: false
+          sortKey: -1764867639023
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "id": 1,
+              "code": "nvklal433",
+              "name": "Bamboo Watch",
+              "description": "Une montre écologique et élégante.",
+              "image": "bamboo-watch.jpg",
+              "category": "Accessories",
+              "price": 65,
+              "quantity": 24,
+              "internalReference": "REF-BAMBOO-001",
+              "shellId": 12,
+              "inventoryStatus": "INSTOCK",
+              "rating": 5
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMzRkZmI1NzZmZjZlNWNkZTM4MiIsImlhdCI6MTc2NDg3MzAzOCwiZXhwIjoxNzcyNjQ5MDM4fQ._ROk-h2Pbwxg68wVtFISfvr0oiANBowJvprgmcICFBQ
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products/1
+        name: Récupérer un produit par son id (user, success)
+        meta:
+          id: req_da688300432e4591bbc3b442ebce8fa7
+          created: 1764866898382
+          modified: 1764870696166
+          isPrivate: false
+          sortKey: -1764867638823
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFjOTY1ZjA1OTM4Y2FiMDRjZDg0MyIsImlhdCI6MTc2NDg3MDUwMSwiZXhwIjoxNzcyNjQ2NTAxfQ.jFZ4oQmnEt_QJ88IqFZZKqI_1k9pRPJqvi9JCQW0XUM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products/3
+        name: Récupérer un produit par son id (user, fail)
+        meta:
+          id: req_b90ecf03d55a490ba341d21dc3301a1c
+          created: 1764867165955
+          modified: 1764870708880
+          isPrivate: false
+          sortKey: -1764867638723
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFjOTY1ZjA1OTM4Y2FiMDRjZDg0MyIsImlhdCI6MTc2NDg3MDUwMSwiZXhwIjoxNzcyNjQ2NTAxfQ.jFZ4oQmnEt_QJ88IqFZZKqI_1k9pRPJqvi9JCQW0XUM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products
+        name: Créer un produit (admin, fail)
+        meta:
+          id: req_adc7155b43f6489d926e5be58b04f81b
+          created: 1764867177350
+          modified: 1764873049758
+          isPrivate: false
+          sortKey: -1764867638923
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "code": "nvklal433",
+              "name": "Bamboo Watch",
+              "description": "Une montre écologique et élégante.",
+              "image": "bamboo-watch.jpg",
+              "category": "Accessories",
+              "price": 65,
+              "quantity": 24,
+              "internalReference": "REF-BAMBOO-001",
+              "shellId": 12,
+              "inventoryStatus": "INSTOCK",
+              "rating": 5
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMzRkZmI1NzZmZjZlNWNkZTM4MiIsImlhdCI6MTc2NDg3MzAzOCwiZXhwIjoxNzcyNjQ5MDM4fQ._ROk-h2Pbwxg68wVtFISfvr0oiANBowJvprgmcICFBQ
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products/1
+        name: Mettre à jour un produit (admin, success)
+        meta:
+          id: req_b6d22f9b9ec94f498c8d1fc01be8c3b3
+          created: 1764867385326
+          modified: 1764873054737
+          isPrivate: false
+          sortKey: -1764867638623
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "price": 80,
+              "quantity": 4,
+              "inventoryStatus": "LOWSTOCK"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMzRkZmI1NzZmZjZlNWNkZTM4MiIsImlhdCI6MTc2NDg3MzAzOCwiZXhwIjoxNzcyNjQ5MDM4fQ._ROk-h2Pbwxg68wVtFISfvr0oiANBowJvprgmcICFBQ
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products/1
+        name: Mettre à jour un produit (admin, fail)
+        meta:
+          id: req_0db7735c78664f8d9044c3e1fb73bc43
+          created: 1764867444787
+          modified: 1764873062662
+          isPrivate: false
+          sortKey: -1764867638523
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "price": 80,
+              "quantity": 4,
+              "inventoryStatus": "UNKNOWN_STATUS"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMzRkZmI1NzZmZjZlNWNkZTM4MiIsImlhdCI6MTc2NDg3MzAzOCwiZXhwIjoxNzcyNjQ5MDM4fQ._ROk-h2Pbwxg68wVtFISfvr0oiANBowJvprgmcICFBQ
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products/25
+        name: Supprimer un produit (admin, fail)
+        meta:
+          id: req_955bdf3e46c24d2980754252568aae9e
+          created: 1764867521162
+          modified: 1764873066376
+          isPrivate: false
+          sortKey: -1764867638423
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMzRkZmI1NzZmZjZlNWNkZTM4MiIsImlhdCI6MTc2NDg3MzAzOCwiZXhwIjoxNzcyNjQ5MDM4fQ._ROk-h2Pbwxg68wVtFISfvr0oiANBowJvprgmcICFBQ
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/products/1
+        name: Supprimer un produit (admin, success)
+        meta:
+          id: req_39735e9c1e6c4de49f40edd39a88b18e
+          created: 1764867553570
+          modified: 1764873069639
+          isPrivate: false
+          sortKey: -1764867638323
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMzRkZmI1NzZmZjZlNWNkZTM4MiIsImlhdCI6MTc2NDg3MzAzOCwiZXhwIjoxNzcyNjQ5MDM4fQ._ROk-h2Pbwxg68wVtFISfvr0oiANBowJvprgmcICFBQ
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Auth
+    meta:
+      id: fld_df948cd2418548b0b5e2d7c94877766d
+      created: 1764869877801
+      modified: 1764869887744
+      sortKey: -1764869877801
+    children:
+      - url: http://localhost:3000/account
+        name: Création d'un compte utilisateur (success)
+        meta:
+          id: req_6c481f901d1e417a9cdc3b7b675f3634
+          created: 1764869881865
+          modified: 1764870615021
+          isPrivate: false
+          sortKey: -1764869881865
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "User1",
+              "firstname": "Utilisateur",
+              "email": "user@gmail.com",
+              "password": "azertyuiop123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/account
+        name: Création d'un compte administrateur (success)
+        meta:
+          id: req_01302b5723c54103872c7a5e8a6fa549
+          created: 1764870479292
+          modified: 1764870610148
+          isPrivate: false
+          sortKey: -1764868760494
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "Admin1",
+              "firstname": "Admin",
+              "email": "admin@admin.com",
+              "password": "azertyuiop123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/account
+        name: Création d'un compte utilisateur (fail)
+        meta:
+          id: req_0d8c30b3a11b4c929b68ceaabc5a14fe
+          created: 1764870514015
+          modified: 1764870525156
+          isPrivate: false
+          sortKey: -1764869321179.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "username": "User1",
+              "firstname": "Utilisateur"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/token
+        name: Connexion au compte (success)
+        meta:
+          id: req_458d5385c7424b308a39e34a585df66d
+          created: 1764870931536
+          modified: 1764871006953
+          isPrivate: false
+          sortKey: -1764868760394
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "user@gmail.com",
+            	"password": "azertyuiop123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/token
+        name: Connexion au compte (fail)
+        meta:
+          id: req_80cac7b373784c07849945ae510c26bd
+          created: 1764871025938
+          modified: 1764871035532
+          isPrivate: false
+          sortKey: -1764868199758.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email": "user@gmail.com",
+            	"password": "qwertyuiop123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Wishlist & Cart
+    meta:
+      id: fld_2742e2356a7d4aee8318740d3f10b956
+      created: 1764870889567
+      modified: 1764871144639
+      sortKey: -1764870889567
+    children:
+      - url: http://localhost:3000/api/user/cart
+        name: Ajouter un produit au panier (user, success)
+        meta:
+          id: req_89ff6dbc9b994a7d9ad7b5a097974d54
+          created: 1764870897415
+          modified: 1764872983459
+          isPrivate: false
+          sortKey: -1764871319983
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "productId": 1,
+              "quantity": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMjk4NTk2NjRhNGU0YzAzMzk1MCIsImlhdCI6MTc2NDg3Mjg1NiwiZXhwIjoxNzcyNjQ4ODU2fQ.pBEg_bPl7NJG_485J9coJ-PKSplWIkBcMpGyHX6BDqo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/user/cart/1
+        name: Supprimer un produit du panier (user, success)
+        meta:
+          id: req_8d9c354051424d889d7d387617cffc73
+          created: 1764871319883
+          modified: 1764872996246
+          isPrivate: false
+          sortKey: -1764871319883
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMjk4NTk2NjRhNGU0YzAzMzk1MCIsImlhdCI6MTc2NDg3Mjg1NiwiZXhwIjoxNzcyNjQ4ODU2fQ.pBEg_bPl7NJG_485J9coJ-PKSplWIkBcMpGyHX6BDqo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/user/cart
+        name: Voir le panier (user, success)
+        meta:
+          id: req_305bc90296a347b2ade6aadd10d1bae3
+          created: 1764871384235
+          modified: 1764872991740
+          isPrivate: false
+          sortKey: -1764871319933
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMjk4NTk2NjRhNGU0YzAzMzk1MCIsImlhdCI6MTc2NDg3Mjg1NiwiZXhwIjoxNzcyNjQ4ODU2fQ.pBEg_bPl7NJG_485J9coJ-PKSplWIkBcMpGyHX6BDqo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/user/wishlist
+        name: Ajouter un produit à la liste de souhaits (user, success)
+        meta:
+          id: req_3e5115ea72284157b680897292bae831
+          created: 1764871728766
+          modified: 1764872865400
+          isPrivate: false
+          sortKey: -1764871319783
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"productId": "1"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMjk4NTk2NjRhNGU0YzAzMzk1MCIsImlhdCI6MTc2NDg3Mjg1NiwiZXhwIjoxNzcyNjQ4ODU2fQ.pBEg_bPl7NJG_485J9coJ-PKSplWIkBcMpGyHX6BDqo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/user/wishlist
+        name: Voir la liste de souhaits (user, success)
+        meta:
+          id: req_b46ff0a2ae44438ba157b927c6c22ba8
+          created: 1764871755651
+          modified: 1764872870855
+          isPrivate: false
+          sortKey: -1764871319683
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMjk4NTk2NjRhNGU0YzAzMzk1MCIsImlhdCI6MTc2NDg3Mjg1NiwiZXhwIjoxNzcyNjQ4ODU2fQ.pBEg_bPl7NJG_485J9coJ-PKSplWIkBcMpGyHX6BDqo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/user/wishlist/1
+        name: Supprimer un produit de la liste de souhaits (user, success)
+        meta:
+          id: req_ea376dbde3ee4689a6fda02af1af452c
+          created: 1764871834595
+          modified: 1764872972009
+          isPrivate: false
+          sortKey: -1764871319583
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzFkMjk4NTk2NjRhNGU0YzAzMzk1MCIsImlhdCI6MTc2NDg3Mjg1NiwiZXhwIjoxNzcyNjQ4ODU2fQ.pBEg_bPl7NJG_485J9coJ-PKSplWIkBcMpGyHX6BDqo
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_6d8f1b08a199a5ec29ed89f6784e591ebcee2f2d
+    created: 1764866432591
+    modified: 1764866432591
+environments:
+  name: Base Environment
+  meta:
+    id: env_6d8f1b08a199a5ec29ed89f6784e591ebcee2f2d
+    created: 1764866432589
+    modified: 1764866432589
+    isPrivate: false

@@ -1,19 +1,22 @@
 const express = require('express');
 const productController = require('../controllers/product.controller');
+const authMiddleware = require('../middleware/auth.middleware');
 
 const router = express.Router();
 
-// 2 routes: 1 pour tous les produits, 1 pour créer un produit
-router
-  .route('/')
-  .get(productController.getAllProducts)
-  .post(productController.createProduct);
+// Routes protégées
+router.use(authMiddleware.protect);
 
-// 3 routes: 1 pour récupérer, 1 pour mettre à jour, 1 pour supprimer un produit par ID
-router
-  .route('/:id')
+// Routes pour les produits 
+// avec restriction admin pour créer/modifier/supprimer des produits
+router.route('/')
+  .get(productController.getAllProducts)
+  .post(authMiddleware.restrictToAdmin, productController.createProduct);
+
+router.route('/:id')
   .get(productController.getProduct)
-  .patch(productController.updateProduct) 
-  .delete(productController.deleteProduct);
+  .patch(authMiddleware.restrictToAdmin, productController.updateProduct)
+  .delete(authMiddleware.restrictToAdmin, productController.deleteProduct);
+
 
 module.exports = router;
